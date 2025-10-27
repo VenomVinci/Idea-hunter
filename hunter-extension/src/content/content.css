@@ -1,0 +1,116 @@
+:root {
+  --hunter-bg: #0f0f0f;
+  --hunter-panel: #181818;
+  --hunter-text: #e6e6e6;
+  --hunter-muted: #9aa0a6;
+  --hunter-accent: #3ea6ff;
+  --hunter-border: #2a2a2a;
+  --hunter-green: #4caf50;
+  --hunter-red: #ef5350;
+}
+
+#hunter-root {
+  all: initial;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.hunter-container {
+  position: fixed;
+  top: 56px;
+  right: 0;
+  width: 360px;
+  height: calc(100% - 56px);
+  background: var(--hunter-panel);
+  color: var(--hunter-text);
+  border-left: 1px solid var(--hunter-border);
+  box-shadow: -8px 0 24px rgba(0,0,0,0.4);
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 260ms ease;
+}
+
+.hunter-container.open {
+  transform: translateX(0);
+}
+
+.hunter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hunter-border);
+}
+
+.hunter-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.hunter-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.hunter-btn {
+  background: var(--hunter-border);
+  color: var(--hunter-text);
+  border: 1px solid var(--hunter-border);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.hunter-btn.primary { background: var(--hunter-accent); color: #081018; border-color: transparent; }
+
+.hunter-body {
+  overflow: auto;
+  flex: 1;
+  padding: 8px 10px 60px 10px;
+}
+
+.hunter-section { margin-bottom: 10px; }
+.hunter-section h3 { margin: 12px 0 6px; font-size: 13px; color: var(--hunter-muted); }
+
+.topic-item { border: 1px solid var(--hunter-border); border-radius: 10px; padding: 10px; margin: 8px 0; background: #131313; }
+.topic-title { display:flex; justify-content:space-between; gap:8px; align-items:center; font-weight:600; font-size:13px; }
+.topic-meta { font-size: 11px; color: var(--hunter-muted); }
+.topic-summary { margin-top: 8px; font-size: 13px; line-height: 1.4; color: #dcdcdc; }
+.topic-bullets { margin-top: 6px; padding-left: 16px; }
+.topic-bullets li { margin: 4px 0; }
+
+.quiz-item { border: 1px solid var(--hunter-border); border-radius: 10px; padding: 10px; margin: 8px 0; background: #121212; }
+.quiz-q { font-weight: 600; font-size: 13px; }
+.quiz-options { margin-top: 6px; display: grid; gap: 6px; }
+.quiz-option { background: #1b1b1b; border: 1px solid var(--hunter-border); color: var(--hunter-text); padding: 8px; border-radius: 8px; cursor:pointer; text-align:left; font-size: 13px; }
+.quiz-option.correct { border-color: var(--hunter-green); outline: 2px solid rgba(76,175,80,0.2); }
+.quiz-option.wrong { border-color: var(--hunter-red); outline: 2px solid rgba(239,83,80,0.2); }
+.quiz-explain { margin-top: 6px; font-size: 12px; color: var(--hunter-muted); }
+
+.timeline { display: flex; gap: 4px; align-items: center; margin: 10px 0; }
+.timeline-bar { position: relative; background: #2a2a2a; height: 6px; border-radius: 999px; flex: 1; }
+.timeline-marker { position: absolute; top: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--hunter-accent); transform: translateX(-50%); cursor: pointer; box-shadow: 0 0 0 2px rgba(62,166,255,0.2); }
+
+.hunter-toggle {
+  position: fixed;
+  top: 64px;
+  right: 16px;
+  z-index: 2147483646;
+  background: var(--hunter-accent);
+  color: #081018;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.hunter-badge { font-size: 11px; background: #0c2440; color: #9cd3ff; padding: 2px 6px; border-radius: 6px; }
+.small { font-size: 12px; }
+.muted { color: var(--hunter-muted); }
+.sep { height: 1px; background: var(--hunter-border); margin: 8px 0; }
+.spinner { width: 16px; height: 16px; border: 2px solid #2a2a2a; border-top-color: var(--hunter-accent); border-radius: 50%; animation: spin 0.9s linear infinite; display:inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
